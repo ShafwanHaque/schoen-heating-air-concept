@@ -1,0 +1,477 @@
+
+:root {
+  --page-bg: #071014;
+  --page-bg-rgb: 7, 16, 20;
+  --surface-dark: #050a0d;
+  --surface-dark-rgb: 5, 10, 13;
+  --surface-dark-alt: #091217;
+  --surface-dark-alt-rgb: 9, 18, 23;
+  --surface-elevated: #101b21;
+  --surface-elevated-rgb: 16, 27, 33;
+  --surface-soft: #eaf0f2;
+  --surface-soft-rgb: 234, 240, 242;
+  --text-primary: #f7fafb;
+  --text-primary-rgb: 247, 250, 251;
+  --text-secondary: #d7e0e4;
+  --text-secondary-rgb: 215, 224, 228;
+  --text-muted: #82929a;
+  --text-muted-rgb: 130, 146, 154;
+  --text-on-brand: #ffffff;
+  --text-on-brand-rgb: 255, 255, 255;
+  --border-subtle: #233139;
+  --border-subtle-rgb: 35, 49, 57;
+  --border-strong: #3a4a53;
+  --border-strong-rgb: 58, 74, 83;
+  --brand-primary: #5f7cff;
+  --brand-primary-rgb: 95, 124, 255;
+  --brand-secondary: #6ee7d8;
+  --brand-secondary-rgb: 110, 231, 216;
+  --brand-accent: #f2c66d;
+  --brand-accent-rgb: 242, 198, 109;
+  --glow-primary: #5f7cff;
+  --glow-primary-rgb: 95, 124, 255;
+  --glow-secondary: #6ee7d8;
+  --glow-secondary-rgb: 110, 231, 216;
+  --network-line: #5b6c74;
+  --network-line-rgb: 91, 108, 116;
+  --success: #70d5a8;
+  --success-rgb: 112, 213, 168;
+  --service-1: #6ee7d8; --service-1-rgb: 110, 231, 216;
+  --service-2: #5f7cff; --service-2-rgb: 95, 124, 255;
+  --service-3: #f2c66d; --service-3-rgb: 242, 198, 109;
+  --service-4: #77d7a7; --service-4-rgb: 119, 215, 167;
+  --service-5: #b596ff; --service-5-rgb: 181, 150, 255;
+
+  --ink: var(--page-bg);
+  --paper: var(--text-primary);
+  --muted: var(--text-muted);
+  --red: var(--brand-primary);
+  --red-bright: var(--brand-primary);
+  --cyan: var(--brand-secondary);
+
+  --theme-panel-radius: 30px;
+  --theme-grid-opacity: .28;
+  --theme-glow-strength: 1;
+  --header-height: 96px;
+  --hero-edge: clamp(20px, 4vw, 64px);
+  --kf-intro-stage-in: intro-stage-in;
+  --kf-intro-grid-in: intro-grid-in;
+  --kf-intro-route-draw: intro-route-draw;
+  --kf-intro-hub-in: intro-hub-in;
+  --kf-intro-brand-lock: intro-brand-lock;
+  --kf-intro-node-in: intro-node-in;
+  --kf-intro-copy-in: intro-copy-in;
+  --kf-intro-status-line: intro-status-line;
+  --kf-intro-edge-in: intro-edge-in;
+  --kf-intro-stage-out: intro-stage-out;
+  --kf-intro-curtain-left: intro-curtain-left;
+  --kf-intro-curtain-right: intro-curtain-right;
+  --kf-hero-header-reveal: hero-header-reveal;
+  --kf-hero-content-reveal: hero-content-reveal;
+  --kf-hero-support-reveal: hero-support-reveal;
+  --kf-whole-system-pulse: whole-system-pulse;
+  --kf-brand-service-scene-in: brand-service-scene-in;
+  --kf-brand-service-left-in: brand-service-left-in;
+  --kf-brand-service-right-in: brand-service-right-in;
+  --kf-brand-service-pipe-draw: brand-service-pipe-draw;
+  --kf-brand-service-part-in: brand-service-part-in;
+  --kf-brand-service-unit-in: brand-service-unit-in;
+  --kf-brand-service-fan-lock: brand-service-fan-lock;
+  --kf-brand-service-logo-reveal: brand-service-logo-reveal;
+  --kf-brand-service-copy-in: brand-service-copy-in;
+  --kf-brand-service-line-in: brand-service-line-in;
+  --kf-brand-service-scene-out: brand-service-scene-out;
+}
+
+[data-theme-style="clean"] {
+  --theme-panel-radius: 34px;
+  --theme-grid-opacity: .14;
+  --theme-glow-strength: .72;
+}
+
+[data-theme-style="technical"] {
+  --theme-panel-radius: 30px;
+  --theme-grid-opacity: .28;
+  --theme-glow-strength: 1;
+}
+
+[data-theme-style="industrial"] {
+  --theme-panel-radius: 18px;
+  --theme-grid-opacity: .20;
+  --theme-glow-strength: .76;
+}
+
+[data-theme-style="warm"] {
+  --theme-panel-radius: 40px;
+  --theme-grid-opacity: .12;
+  --theme-glow-strength: .68;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--page-bg);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family:
+    var(--font-inter),
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-optical-sizing: auto;
+  font-synthesis: none;
+  font-variation-settings: "slnt" 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+svg {
+  display: block;
+}
+
+main {
+  min-height: 100vh;
+}
+
+body.is-intro-locked {
+  overflow: hidden;
+}
+
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@keyframes intro-stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-grid-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-route-draw {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0.2;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes intro-hub-in {
+  from {
+    opacity: 0;
+    transform: scale(0.86) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes intro-brand-lock {
+  from {
+    opacity: 0;
+    transform: scale(0.76) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes intro-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-status-line {
+  from {
+    transform: translateX(-101%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro-edge-in {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes intro-stage-out {
+  to {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes intro-curtain-left {
+  to {
+    transform: translateX(-101%);
+  }
+}
+
+@keyframes intro-curtain-right {
+  to {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes hero-header-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-support-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes whole-system-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  18% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes brand-service-scene-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes brand-service-left-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-28px, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes brand-service-right-in {
+  from {
+    opacity: 0;
+    transform: translate3d(28px, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes brand-service-pipe-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes brand-service-part-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes brand-service-unit-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes brand-service-fan-lock {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes brand-service-logo-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 50% 0 50% round 22px);
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 22px);
+    transform: scale(1);
+  }
+}
+
+@keyframes brand-service-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brand-service-line-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes brand-service-scene-out {
+  to {
+    opacity: 0;
+    transform: scale(1.018);
+  }
+}

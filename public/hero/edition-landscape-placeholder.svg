@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 850" role="img" aria-label="Wide image placeholder to replace for every brand">
+ <defs>
+  <linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DDE2E3"/><stop offset=".58" stop-color="#B3BEC2"/><stop offset="1" stop-color="#8C9AA1"/></linearGradient>
+  <pattern id="rule" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1"/></pattern>
+ </defs>
+ <rect width="1600" height="850" fill="url(#base)"/>
+ <rect width="1600" height="850" fill="url(#rule)"/>
+ <g fill="none" stroke="#fff" stroke-width="2" stroke-opacity=".7"><path d="M90 140v-50h50M1460 90h50v50M90 710v50h50M1460 760h50v-50"/></g>
+ <g fill="#34464B" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">
+  <text x="800" y="362" font-size="24" font-weight="700" letter-spacing="7" opacity=".67">REPLACEABLE PHOTOGRAPHY</text>
+  <text x="800" y="449" font-size="86" font-weight="600" letter-spacing="-4">[[HERO_IMAGE]]</text>
+  <text x="800" y="504" font-size="19" letter-spacing="4" opacity=".67">TEAM  /  FLEET  /  PROJECT  /  PROPERTY</text>
+ </g>
+ <g font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#34464B" opacity=".55" letter-spacing="3">
+ <text x="94" y="59">16:9 / LANDSCAPE</text><text x="1180" y="60">MASTER ASSET SLOT / 01</text>
+ </g>
+</svg>

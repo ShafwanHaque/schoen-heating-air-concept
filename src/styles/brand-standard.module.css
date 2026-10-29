@@ -1,0 +1,595 @@
+.scope {
+  display: contents;
+}
+
+.scope :global(.brand-standard) {
+  position: relative;
+  z-index: 3;
+  min-height: max(760px, 100svh);
+  padding: clamp(72px, 8vw, 118px) clamp(22px, 4vw, 62px) clamp(112px, 11vw, 154px);
+  overflow: hidden;
+  background: var(--surface-dark-alt);
+}
+
+.scope :global(.brand-standard::before) {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(var(--brand-primary-rgb), 0.12), transparent 26%),
+    radial-gradient(circle at 86% 82%, rgba(var(--brand-secondary-rgb), 0.08), transparent 28%);
+  pointer-events: none;
+  content: "";
+}
+
+.scope :global(.brand-standard__frame) {
+  position: relative;
+  z-index: 2;
+  width: min(1450px, 100%);
+  min-height: min(790px, calc(100svh - 150px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+  overflow: hidden;
+  border: 1px solid rgba(var(--text-primary-rgb), 0.1);
+  border-radius: var(--theme-panel-radius);
+  box-shadow: 0 42px 110px rgba(0, 0, 0, 0.34);
+}
+
+.scope :global(.brand-standard__dark),
+.scope :global(.brand-standard__light) {
+  position: relative;
+  min-width: 0;
+}
+
+.scope :global(.brand-standard__dark) {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(58px, 6vw, 92px) clamp(44px, 5vw, 78px);
+  color: var(--text-primary);
+  background:
+    linear-gradient(145deg, rgba(var(--brand-primary-rgb), 0.055), transparent 32%),
+    linear-gradient(160deg, var(--surface-dark) 0%, var(--surface-elevated) 100%);
+}
+
+.scope :global(.brand-standard__dark-grid) {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(var(--network-line-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--network-line-rgb), 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(115deg, #000 0 34%, transparent 82%);
+  pointer-events: none;
+}
+
+.scope :global(.brand-standard__brand-rail) {
+  position: absolute;
+  top: 42px;
+  right: 28px;
+  bottom: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(var(--text-primary-rgb), 0.22);
+  font-size: 9px;
+  font-weight: 820;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.scope :global(.brand-standard__brand-rail i) {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(180deg, transparent, rgba(var(--brand-primary-rgb), 0.56), transparent);
+}
+
+.scope :global(.brand-standard__copy) {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 610px);
+}
+
+.scope :global(.brand-standard__eyebrow) {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: clamp(22px, 2.8vw, 34px);
+  color: rgba(var(--text-primary-rgb), 0.62);
+  font-size: 12px;
+  font-weight: 830;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scope :global(.brand-standard__eyebrow > span) {
+  width: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-primary) 0 62%, var(--brand-secondary) 62% 100%);
+}
+
+.scope :global(.brand-standard__title) {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(58px, 6vw, 104px);
+  font-weight: 620;
+  letter-spacing: -0.065em;
+  line-height: 0.88;
+}
+
+.scope :global(.brand-standard__title > span) {
+  display: block;
+  overflow: hidden;
+  padding: 0.08em 0.05em 0.08em 0;
+}
+
+.scope :global(.brand-standard__title > span > span) {
+  display: block;
+}
+
+.scope :global(.brand-standard__title-accent) {
+  color: var(--brand-primary);
+}
+
+.scope :global(.brand-standard__body) {
+  max-width: 530px;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(var(--text-primary-rgb), 0.12);
+}
+
+.scope :global(.brand-standard__body h3) {
+  margin: 0;
+  color: rgba(var(--text-primary-rgb), 0.93);
+  font-size: clamp(20px, 1.6vw, 27px);
+  font-weight: 670;
+  letter-spacing: -0.028em;
+}
+
+.scope :global(.brand-standard__body p) {
+  margin: 12px 0 0;
+  color: rgba(var(--text-primary-rgb), 0.57);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.62;
+}
+
+.scope :global(.brand-standard__actions) {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.scope :global(.brand-standard__call) {
+  min-width: 235px;
+  min-height: 66px;
+  padding: 10px 12px 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  color: var(--text-on-brand);
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(var(--brand-primary-rgb), 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.scope :global(.brand-standard__call:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 19px 48px rgba(var(--brand-primary-rgb), 0.28);
+}
+
+.scope :global(.brand-standard__call span) {
+  display: grid;
+  gap: 2px;
+}
+
+.scope :global(.brand-standard__call small) {
+  opacity: 0.72;
+  font-size: 10px;
+  font-weight: 820;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.scope :global(.brand-standard__call strong) {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.scope :global(.brand-standard__call svg) {
+  width: 31px;
+  height: 31px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.brand-standard__availability) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 190px;
+  color: rgba(var(--text-primary-rgb), 0.55);
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.4;
+}
+
+.scope :global(.brand-standard__availability i) {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--brand-secondary);
+  box-shadow: 0 0 0 6px rgba(var(--brand-secondary-rgb), 0.08), 0 0 16px rgba(var(--brand-secondary-rgb), 0.3);
+}
+
+.scope :global(.brand-standard__light) {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(48px, 5vw, 72px) clamp(38px, 4.8vw, 70px) 38px;
+  color: var(--surface-dark);
+  background:
+    radial-gradient(circle at 88% 6%, rgba(var(--brand-primary-rgb), 0.08), transparent 24%),
+    color-mix(in srgb, var(--surface-soft) 42%, white);
+}
+
+.scope :global(.brand-standard__seam) {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--brand-primary), var(--brand-secondary) 58%, transparent 96%);
+  box-shadow: 0 0 24px rgba(var(--brand-primary-rgb), 0.15);
+}
+
+.scope :global(.brand-standard__light-header) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: clamp(30px, 3vw, 42px);
+  border-bottom: 1px solid color-mix(in srgb, var(--surface-dark) 12%, transparent);
+}
+
+.scope :global(.brand-standard__light-header > div > span) {
+  color: var(--brand-primary);
+  font-size: 10px;
+  font-weight: 860;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.scope :global(.brand-standard__light-header h3) {
+  max-width: 510px;
+  margin: 10px 0 0;
+  color: var(--surface-dark);
+  font-size: clamp(34px, 3.4vw, 56px);
+  font-weight: 690;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.scope :global(.brand-standard__light-header > p) {
+  margin: -12px 0 0;
+  color: color-mix(in srgb, var(--surface-dark) 8%, transparent);
+  font-size: clamp(92px, 9vw, 148px);
+  font-weight: 760;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.scope :global(.brand-standard__principles) {
+  display: grid;
+  flex: 1;
+}
+
+.scope :global(.brand-standard__principle) {
+  --standard-accent: var(--brand-primary);
+  position: relative;
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: 54px 70px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 26px);
+  border-bottom: 1px solid color-mix(in srgb, var(--surface-dark) 10%, transparent);
+}
+
+.scope :global(.brand-standard__principle-number) {
+  align-self: start;
+  padding-top: 31px;
+  color: color-mix(in srgb, var(--surface-dark) 32%, transparent);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.scope :global(.brand-standard__principle-icon) {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--standard-accent) 32%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--standard-accent) 7%, white);
+  color: var(--standard-accent);
+}
+
+.scope :global(.brand-standard__principle-icon svg) {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.brand-standard__principle-copy) {
+  min-width: 0;
+}
+
+.scope :global(.brand-standard__principle-copy strong) {
+  display: block;
+  color: var(--surface-dark);
+  font-size: clamp(22px, 1.7vw, 29px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.scope :global(.brand-standard__principle-copy p) {
+  max-width: 470px;
+  margin: 7px 0 0;
+  color: color-mix(in srgb, var(--surface-dark) 60%, transparent);
+  font-size: 14px;
+  line-height: 1.52;
+}
+
+.scope :global(.brand-standard__principle-mark) {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--standard-accent);
+  box-shadow: 0 0 0 7px rgba(var(--standard-accent-rgb), 0.08);
+}
+
+.scope :global(.brand-standard__light-footer) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 28px;
+  color: color-mix(in srgb, var(--surface-dark) 46%, transparent);
+}
+
+.scope :global(.brand-standard__light-footer > span) {
+  color: var(--surface-dark);
+  font-size: 11px;
+  font-weight: 860;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scope :global(.brand-standard__light-footer p) {
+  max-width: 390px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.scope :global(.brand-standard__handoff) {
+  position: absolute;
+  z-index: 6;
+  bottom: 0;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  translate: -50% 0;
+  color: rgba(var(--text-primary-rgb), 0.42);
+  font-size: 10px;
+  font-weight: 790;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.scope :global(.brand-standard__handoff i) {
+  display: block;
+  width: 3px;
+  height: clamp(54px, 7vh, 78px);
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, var(--brand-secondary), var(--brand-primary));
+}
+
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-eyebrow]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-headline]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-body]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-actions]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-panel]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-row]),
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-handoff]) {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+
+.scope :global(.brand-standard.is-brand-standard-static [data-standard-seam]) {
+  transform: none !important;
+}
+
+@media (max-width: 1120px) {
+  .scope :global(.brand-standard) {
+    padding-inline: 28px;
+  }
+
+  .scope :global(.brand-standard__frame) {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .scope :global(.brand-standard__dark) {
+    padding-inline: 40px;
+  }
+
+  .scope :global(.brand-standard__title) {
+    font-size: clamp(54px, 6.7vw, 78px);
+  }
+
+  .scope :global(.brand-standard__light) {
+    padding-inline: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  .scope :global(.brand-standard) {
+    min-height: 0;
+    padding: 38px 18px 92px;
+  }
+
+  .scope :global(.brand-standard__frame) {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    border-radius: 26px;
+  }
+
+  .scope :global(.brand-standard__dark) {
+    min-height: 620px;
+    padding: 72px 34px 62px;
+  }
+
+  .scope :global(.brand-standard__light) {
+    padding: 44px 34px 30px;
+  }
+
+  .scope :global(.brand-standard__seam) {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary), transparent 96%);
+  }
+
+  .scope :global(.brand-standard__brand-rail) {
+    display: none;
+  }
+
+  .scope :global(.brand-standard__handoff) {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .scope :global(.brand-standard) {
+    padding-inline: 12px;
+  }
+
+  .scope :global(.brand-standard__frame) {
+    border-radius: 22px;
+  }
+
+  .scope :global(.brand-standard__dark) {
+    min-height: 0;
+    padding: 58px 22px 52px;
+  }
+
+  .scope :global(.brand-standard__eyebrow) {
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .scope :global(.brand-standard__title) {
+    font-size: clamp(50px, 15vw, 72px);
+  }
+
+  .scope :global(.brand-standard__body) {
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+  .scope :global(.brand-standard__actions) {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .scope :global(.brand-standard__call) {
+    width: 100%;
+  }
+
+  .scope :global(.brand-standard__availability) {
+    max-width: none;
+    padding-left: 8px;
+  }
+
+  .scope :global(.brand-standard__light) {
+    padding: 38px 20px 26px;
+  }
+
+  .scope :global(.brand-standard__light-header) {
+    padding-bottom: 24px;
+  }
+
+  .scope :global(.brand-standard__light-header h3) {
+    font-size: 36px;
+  }
+
+  .scope :global(.brand-standard__light-header > p) {
+    display: none;
+  }
+
+  .scope :global(.brand-standard__principle) {
+    min-height: 142px;
+    grid-template-columns: 36px 52px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .scope :global(.brand-standard__principle-number) {
+    padding-top: 28px;
+  }
+
+  .scope :global(.brand-standard__principle-icon) {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .scope :global(.brand-standard__principle-icon svg) {
+    width: 28px;
+    height: 28px;
+  }
+
+  .scope :global(.brand-standard__principle-copy strong) {
+    font-size: 20px;
+  }
+
+  .scope :global(.brand-standard__principle-copy p) {
+    font-size: 12px;
+  }
+
+  .scope :global(.brand-standard__principle-mark) {
+    display: none;
+  }
+
+  .scope :global(.brand-standard__light-footer) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .scope :global(.brand-standard__light-footer p) {
+    text-align: left;
+  }
+}

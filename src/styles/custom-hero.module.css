@@ -1,0 +1,563 @@
+.scope { display: contents; }
+
+/* Shared styles for the three hero layouts; open-door's uncropped image frame
+   is defined separately below. */
+.scope :global(.home-hero) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: var(--surface-dark);
+  background: color-mix(in srgb, var(--surface-soft) 93%, #fff9ef);
+}
+.scope :global(.home-hero::before) {
+  content: "";
+  position: absolute;
+  width: clamp(270px, 44vw, 770px);
+  aspect-ratio: 1;
+  right: -18%;
+  top: -28%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--brand-accent-rgb), .18), transparent 70%);
+  opacity: .6;
+  pointer-events: none;
+}
+.scope :global(.home-hero__inner) {
+  position: relative;
+  width: min(100%, 1660px);
+  padding: calc(var(--header-height) + clamp(9px, 1.6vh, 20px)) var(--hero-edge) 0;
+  margin-inline: auto;
+}
+.scope :global(.home-hero__topline) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 0 clamp(14px, 2vh, 21px);
+  border-bottom: 1px solid rgba(var(--surface-dark-rgb), .14);
+}
+.scope :global(.home-hero__eyebrow),
+.scope :global(.home-hero__counter) {
+  color: rgba(var(--surface-dark-rgb), .65);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.scope :global(.home-hero__eyebrow) { display: inline-flex; align-items: center; gap: 11px; }
+.scope :global(.home-hero__eyebrow i) {
+  display: inline-block;
+  width: 16px; height: 2px;
+  background: var(--brand-primary);
+}
+.scope :global(.home-hero__counter) { white-space: nowrap; opacity: .7; }
+.scope :global(.home-hero__composition) {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  gap: clamp(26px, 3.8vw, 69px);
+  align-items: center;
+  padding: clamp(23px, 3.7vh, 37px) 0 clamp(19px, 3vh, 31px);
+}
+.scope :global(.home-hero__copy) { min-width: 0; position: relative; z-index: 1; }
+.scope :global(.home-hero__title) {
+  margin: 0;
+  display: grid;
+  gap: 5px;
+  color: var(--surface-dark);
+  font-size: clamp(54px, 5.2vw, 92px);
+  line-height: .98;
+  letter-spacing: -.073em;
+  font-weight: 570;
+  text-wrap: balance;
+}
+.scope :global(.home-hero__title span) { display: block; }
+.scope :global(.home-hero__title-accent) {
+  color: color-mix(in srgb, var(--brand-primary) 75%, var(--surface-dark));
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -.065em;
+  line-height: 1.08;
+}
+.scope :global(.home-hero__description) {
+  width: min(100%, 480px);
+  margin: clamp(19px, 3vh, 30px) 0 0;
+  color: rgba(var(--surface-dark-rgb), .7);
+  font-size: clamp(15px, 1.13vw, 18px);
+  line-height: 1.63;
+  font-weight: 450;
+}
+.scope :global(.home-hero__actions) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 21px;
+  margin-top: clamp(20px, 3.4vh, 32px);
+}
+.scope :global(.home-hero__primary),
+.scope :global(.home-hero__secondary) {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 13px;
+  font-weight: 760;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.scope :global(.home-hero__primary) {
+  padding: 0 17px 0 20px;
+  background: var(--surface-dark);
+  color: var(--text-primary);
+  border-radius: 12px 12px 5px 12px;
+  box-shadow: 0 12px 25px rgba(var(--surface-dark-rgb), .1);
+}
+.scope :global(.home-hero__secondary) {
+  color: var(--surface-dark);
+  border-bottom: 1px solid rgba(var(--surface-dark-rgb), .3);
+}
+.scope :global(.home-hero__primary svg),
+.scope :global(.home-hero__secondary svg) { width: 17px; height: 17px; flex: none; }
+.scope :global(.home-hero__primary svg) { color: var(--brand-secondary); }
+.scope :global(.home-hero__primary:hover),
+.scope :global(.home-hero__secondary:hover) { transform: translateY(-2px); }
+.scope :global(.home-hero__location) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: clamp(24px, 4vh, 36px);
+}
+.scope :global(.home-hero__home-icon) {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 14px 14px 6px 14px;
+  background: rgba(var(--brand-primary-rgb), .12);
+  color: var(--brand-primary);
+}
+.scope :global(.home-hero__home-icon svg) { width: 20px; height: 20px; }
+.scope :global(.home-hero__location > div) { display: grid; gap: 4px; }
+.scope :global(.home-hero__location small) {
+  color: rgba(var(--surface-dark-rgb), .53);
+  font-size: 10px; font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.scope :global(.home-hero__location strong) {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--surface-dark);
+}
+.scope :global(.home-hero__media) { min-width: 0; width: 100%; }
+.scope :global(.home-hero__photo-wrap) {
+  position: relative;
+  padding: clamp(9px, 1.4vw, 19px);
+  background: color-mix(in srgb, var(--surface-soft) 64%, white);
+  border: 1px solid rgba(var(--surface-dark-rgb), .1);
+  border-radius: 28px 14px 28px 12px;
+  box-shadow: 0 23px 58px rgba(var(--surface-dark-rgb), .09), 0 3px 0 rgba(var(--surface-dark-rgb), .04);
+}
+.scope :global(.home-hero__mat) {
+  position: relative;
+  width: 100%;
+  padding: clamp(9px, 1.3vw, 17px);
+  background: color-mix(in srgb, var(--surface-soft) 34%, #fff);
+  border-radius: 22px 10px 22px 8px;
+  box-shadow: inset 0 0 0 1px rgba(var(--surface-dark-rgb), .045);
+}
+.scope :global(.home-hero__photo) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  height: clamp(325px, 29vw, 452px);
+  border-radius: 18px 6px 18px 6px;
+  background: color-mix(in srgb, var(--brand-secondary) 15%, #e3e6df);
+}
+.scope :global(.home-hero__photo-content) {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.scope :global(.home-hero__photo-main) { display: block; z-index: 1; }
+.scope :global(.home-hero__photo-blur) {
+  z-index: 0;
+  transform: scale(1.15);
+  filter: blur(32px) brightness(1.09) saturate(.66);
+  opacity: .42;
+  object-fit: cover;
+}
+.scope :global(.home-hero__placeholder) {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 15px;
+  color: #4c5c54;
+}
+.scope :global(.home-hero__placeholder small),
+.scope :global(.home-hero__placeholder span) {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.scope :global(.home-hero__placeholder strong) {
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -.06em;
+  overflow-wrap: anywhere;
+}
+/* Meaningful architecture: picture mat with a small offset sill behind it. */
+.scope :global(.home-hero__frame-accent) {
+  position: absolute;
+  z-index: -1;
+  width: 52%;
+  height: 16px;
+  bottom: -10px;
+  right: 5%;
+  border-radius: 0 0 9px 9px;
+  background: color-mix(in srgb, var(--brand-primary) 42%, var(--surface-soft));
+  box-shadow: 0 12px 26px rgba(var(--surface-dark-rgb), .075);
+}
+.scope :global(.home-hero__caption) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 42px;
+  padding-top: 12px;
+  color: rgba(var(--surface-dark-rgb), .6);
+  font-size: 10px;
+  font-weight: 760;
+  line-height: 1.45;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.scope :global(.home-hero__caption span:last-child) { text-align: right; }
+.scope :global(.home-hero__service-band) {
+  display: flex;
+  align-items: center;
+  gap: 14px 25px;
+  border-top: 1px solid rgba(var(--surface-dark-rgb), .17);
+  padding: clamp(15px, 2vh, 21px) 0;
+  min-height: 62px;
+}
+.scope :global(.home-hero__band-label) {
+  color: rgba(var(--surface-dark-rgb), .55);
+  font-size: 10px;
+  letter-spacing: .11em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.scope :global(.home-hero__service-band nav) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(13px, 2vw, 29px);
+  flex-wrap: wrap;
+  flex: 1;
+}
+.scope :global(.home-hero__service-band a) { text-decoration: none; color: var(--surface-dark); }
+.scope :global(.home-hero__service-band nav a) {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 720;
+}
+.scope :global(.home-hero__service-band nav small) { font-size: 10px; color: var(--brand-primary); font-weight: 800; }
+.scope :global(.home-hero__discover) {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 780; font-size: 11px;
+  white-space: nowrap;
+}
+.scope :global(.home-hero__discover svg) { width: 16px; height: 16px; }
+
+/* ALTERNATE: THE KEEPSAKE. The headline becomes an editorial masthead, and the
+   image sits in a calm central picture mat, independent from text and actions. */
+.scope :global(.home-hero--keepsake .home-hero__composition) {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: clamp(14px, 2.3vw, 28px);
+  padding-top: clamp(12px, 2vw, 24px);
+}
+.scope :global(.home-hero--keepsake .home-hero__copy) {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+  column-gap: clamp(20px, 5vw, 95px);
+  align-items: center;
+}
+.scope :global(.home-hero--keepsake .home-hero__title) { grid-row: 1 / span 3; font-size: clamp(52px, 5vw, 82px); }
+.scope :global(.home-hero--keepsake .home-hero__description) { margin: 0; }
+.scope :global(.home-hero--keepsake .home-hero__actions) { margin-top: 12px; }
+.scope :global(.home-hero--keepsake .home-hero__location) { margin-top: 13px; }
+.scope :global(.home-hero--keepsake .home-hero__media) { width: min(100%, 970px); }
+.scope :global(.home-hero--keepsake .home-hero__photo-wrap) { border-radius: 24px 12px 24px 10px; padding: 12px; }
+.scope :global(.home-hero--keepsake .home-hero__mat) { padding: 8px; }
+.scope :global(.home-hero--keepsake .home-hero__photo) { height: clamp(280px, 28vw, 390px); }
+.scope :global(.home-hero--keepsake .home-hero__frame-accent) { left: 10%; right: auto; width: 33%; }
+.scope :global(.home-hero--keepsake .home-hero__caption) { min-height: 28px; padding-top: 8px; }
+
+@media (max-width: 1180px) {
+  .scope :global(.home-hero__title) { font-size: clamp(45px, 5.3vw, 77px); }
+  .scope :global(.home-hero__composition) { gap: 26px; }
+  .scope :global(.home-hero__photo) { height: clamp(320px, 32vw, 430px); }
+  .scope :global(.home-hero__band-label) { display: none; }
+}
+@media (max-width: 900px) {
+  .scope :global(.home-hero__composition) { grid-template-columns: 1fr; }
+  .scope :global(.home-hero__copy) { max-width: 750px; }
+  .scope :global(.home-hero__title) { font-size: clamp(48px, 8.4vw, 77px); }
+  .scope :global(.home-hero__description) { margin-top: 17px; }
+  .scope :global(.home-hero__actions) { margin-top: 17px; }
+  .scope :global(.home-hero__location) { margin-top: 16px; }
+  .scope :global(.home-hero__media) { width: 100%; }
+  .scope :global(.home-hero__photo) { height: clamp(350px, 52vw, 510px); }
+  .scope :global(.home-hero--keepsake .home-hero__copy) { grid-template-columns: 1fr; }
+  .scope :global(.home-hero--keepsake .home-hero__title) { grid-row: auto; }
+  .scope :global(.home-hero--keepsake .home-hero__description) { margin-top: 16px; }
+  .scope :global(.home-hero--keepsake .home-hero__photo) { height: clamp(310px, 45vw, 430px); }
+  .scope :global(.home-hero__service-band) { flex-wrap: wrap; }
+}
+@media (max-width: 540px) {
+  .scope :global(.home-hero__inner) { padding-top: calc(var(--header-height) + 5px); }
+  .scope :global(.home-hero__topline) { padding-bottom: 10px; }
+  .scope :global(.home-hero__counter) { display: none; }
+  .scope :global(.home-hero__eyebrow) { font-size: 9px; }
+  .scope :global(.home-hero__composition) { gap: 20px; padding-top: 17px; padding-bottom: 14px; }
+  .scope :global(.home-hero__title),
+  .scope :global(.home-hero--keepsake .home-hero__title) { font-size: clamp(42px, 10.5vw, 58px); }
+  .scope :global(.home-hero__description) { font-size: 14px; line-height: 1.55; }
+  .scope :global(.home-hero__actions) { gap: 9px 15px; }
+  .scope :global(.home-hero__primary), .scope :global(.home-hero__secondary) { min-height: 43px; }
+  .scope :global(.home-hero__primary) { padding: 0 13px; }
+  .scope :global(.home-hero__photo-wrap) { padding: 9px; border-radius: 20px 10px 20px 8px; }
+  .scope :global(.home-hero__mat) { padding: 7px; border-radius: 14px 8px 14px 6px; }
+  .scope :global(.home-hero__photo),
+  .scope :global(.home-hero--keepsake .home-hero__photo) { height: clamp(250px, 75vw, 350px); border-radius: 14px 5px 12px 5px; }
+  .scope :global(.home-hero__caption) { font-size: 9px; min-height: 32px; }
+  .scope :global(.home-hero__service-band) { align-items: flex-start; padding: 12px 0; }
+  .scope :global(.home-hero__service-band nav) { justify-content: flex-start; width: 100%; gap: 12px 17px; }
+  .scope :global(.home-hero__service-band nav a) { font-size: 11px; }
+  .scope :global(.home-hero__discover) { margin-left: auto; }
+}
+@media (min-width: 901px) and (max-height: 760px) {
+  .scope :global(.home-hero__composition) { padding-top: 14px; padding-bottom: 14px; }
+  .scope :global(.home-hero__photo) { height: clamp(270px, 25vw, 350px); }
+  .scope :global(.home-hero--keepsake .home-hero__photo) { height: clamp(265px, 24vw, 320px); }
+  .scope :global(.home-hero__title) { font-size: clamp(48px, 4.5vw, 74px); }
+  .scope :global(.home-hero__location) { margin-top: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scope :global(.home-hero *), .scope :global(.home-hero *::before), .scope :global(.home-hero *::after) { animation: none !important; transition: none !important; }
+}
+
+/* Keepsake refinement: preserve the image while maintaining screenshot-friendly
+   proportions on common desktop screens. */
+@media (min-width: 901px) {
+  .scope :global(.home-hero--keepsake .home-hero__composition) { gap: 11px; padding-top: 16px; padding-bottom: 13px; }
+  .scope :global(.home-hero--keepsake .home-hero__photo) { height: clamp(265px, 22vw, 335px); }
+  .scope :global(.home-hero--keepsake .home-hero__title) { font-size: clamp(51px, 4.8vw, 76px); }
+}
+
+/* ==========================================================
+   V21 SIGNATURE — THE OPEN DOOR
+   The dark doorway remains on the left. On the right, the actual image
+   becomes the edge-to-edge frame (no mat, sill, gaps, or inner padding).
+   The photo controls the frame's aspect ratio, so pixels are never cropped.
+   ========================================================== */
+.scope :global(.home-hero__door-seam),
+.scope :global(.home-hero__door-title) { display: none; }
+
+.scope :global(.home-hero--open-door) {
+  --door-ink: var(--surface-dark);
+  --door-wall: color-mix(in srgb, var(--surface-soft) 90%, #fff);
+  --door-mat: color-mix(in srgb, var(--surface-soft) 73%, #fff);
+  background: var(--door-wall);
+}
+.scope :global(.home-hero--open-door::before) { content: none; }
+.scope :global(.home-hero--open-door .home-hero__inner) { width: min(100%, 1580px); }
+.scope :global(.home-hero--open-door .home-hero__topline) {
+  border: 0;
+  padding-bottom: clamp(12px, 1.7vh, 18px);
+}
+.scope :global(.home-hero--open-door .home-hero__composition) {
+  padding: 0 0 18px;
+  grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr);
+  gap: 0;
+  align-items: stretch;
+  filter: drop-shadow(0 25px 30px rgba(var(--surface-dark-rgb), .08));
+}
+.scope :global(.home-hero--open-door .home-hero__copy) {
+  padding: clamp(30px, 3.45vw, 57px) clamp(34px, 3.8vw, 65px);
+  min-height: clamp(505px, 38vw, 558px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  color: var(--text-primary);
+  background: var(--door-ink);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.scope :global(.home-hero--open-door .home-hero__copy::before) {
+  content: "";
+  position: absolute;
+  inset: 16px 18px 16px 16px;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,.11);
+}
+.scope :global(.home-hero--open-door .home-hero__door-seam) {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  top: 0; bottom: 0; right: 0;
+  width: 16px;
+  background: linear-gradient(90deg, rgba(255,255,255,.05), rgba(0,0,0,.24));
+  border-left: 1px solid rgba(255,255,255,.075);
+}
+.scope :global(.home-hero--open-door .home-hero__door-seam i) {
+  width: 4px; height: 27px; border-radius: 2px;
+  background: color-mix(in srgb, var(--brand-accent) 72%, white);
+  box-shadow: 1px 0 3px rgba(0,0,0,.22);
+}
+.scope :global(.home-hero--open-door .home-hero__door-title) {
+  display: block;
+  margin-bottom: clamp(16px, 2vw, 30px);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--brand-accent) 70%, white);
+}
+.scope :global(.home-hero--open-door .home-hero__title) {
+  color: var(--text-primary);
+  font-size: clamp(44px, 4.5vw, 76px);
+  letter-spacing: -.067em;
+  line-height: .99;
+}
+.scope :global(.home-hero--open-door .home-hero__title-accent) {
+  color: color-mix(in srgb, var(--brand-secondary) 77%, white);
+}
+.scope :global(.home-hero--open-door .home-hero__description) {
+  margin-top: clamp(18px, 2vw, 28px);
+  max-width: 455px;
+  color: rgba(255,255,255,.74);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.59;
+}
+.scope :global(.home-hero--open-door .home-hero__actions) { margin-top: clamp(18px, 2vw, 27px); }
+.scope :global(.home-hero--open-door .home-hero__primary) {
+  color: var(--door-ink);
+  background: color-mix(in srgb, var(--brand-secondary) 45%, #fff);
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+.scope :global(.home-hero--open-door .home-hero__primary svg) { color: var(--door-ink); }
+.scope :global(.home-hero--open-door .home-hero__secondary) {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,.4);
+}
+.scope :global(.home-hero--open-door .home-hero__location) { margin-top: clamp(18px, 2vw, 28px); }
+.scope :global(.home-hero--open-door .home-hero__location small) { color: rgba(255,255,255,.5); }
+.scope :global(.home-hero--open-door .home-hero__location strong) { color: var(--text-primary); }
+.scope :global(.home-hero--open-door .home-hero__home-icon) {
+  background: rgba(255,255,255,.1);
+  color: color-mix(in srgb, var(--brand-secondary) 70%, #fff);
+}
+/* The photo itself is the frame. With max-width and max-height but no forced
+   aspect ratio, each source image is shown whole at its native proportions.
+   The radii are on the photo, not on an oversized outer rectangle. */
+.scope :global(.home-hero--open-door .home-hero__media) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(5px, .8vw, 11px) clamp(5px, .8vw, 11px) 6px;
+  background: var(--door-mat);
+}
+.scope :global(.home-hero--open-door .home-hero__photo-wrap) {
+  --diagonal-corner: clamp(55px, 6.6vw, 94px);
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.scope :global(.home-hero--open-door .home-hero__photo-main--natural) {
+  position: relative;
+  display: block;
+  flex: 0 1 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: clamp(430px, 50vw, 650px);
+  object-fit: contain;
+  border-radius: var(--diagonal-corner) 6px var(--diagonal-corner) 6px;
+  box-shadow: 0 17px 46px rgba(var(--surface-dark-rgb), .16);
+}
+.scope :global(.home-hero--open-door .home-hero__mat),
+.scope :global(.home-hero--open-door .home-hero__frame-accent) { display: none; }
+.scope :global(.home-hero--open-door .home-hero__caption) {
+  position: relative;
+  z-index: 1;
+  min-height: 31px;
+  margin-top: 11px;
+  padding: 0;
+  color: rgba(var(--surface-dark-rgb), .69);
+}
+.scope :global(.home-hero--open-door .home-hero__service-band) {
+  padding: 13px 0 17px;
+  min-height: 55px;
+}
+@media (min-width: 901px) and (max-height: 760px) {
+  .scope :global(.home-hero--open-door .home-hero__copy) { min-height: 470px; padding-block: 27px; }
+  .scope :global(.home-hero--open-door .home-hero__title) { font-size: clamp(43px, 4vw, 65px); }
+}
+@media (max-width: 1050px) {
+  .scope :global(.home-hero--open-door .home-hero__composition) { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .scope :global(.home-hero--open-door .home-hero__copy) { padding: 28px 27px 26px; }
+  .scope :global(.home-hero--open-door .home-hero__title) { font-size: clamp(41px, 5vw, 58px); }
+}
+@media (max-width: 900px) {
+  .scope :global(.home-hero--open-door .home-hero__composition) { grid-template-columns: 1fr; }
+  .scope :global(.home-hero--open-door .home-hero__copy) { min-height: 0; padding: 30px 33px; }
+  .scope :global(.home-hero--open-door .home-hero__title) { font-size: clamp(43px, 6.8vw, 67px); }
+  .scope :global(.home-hero--open-door .home-hero__media) { padding: 9px 0 7px; }
+  .scope :global(.home-hero--open-door .home-hero__photo-main--natural) { max-height: min(65vh, 580px); }
+}
+@media (max-width: 540px) {
+  .scope :global(.home-hero--open-door .home-hero__composition) { padding-top: 0; }
+  .scope :global(.home-hero--open-door .home-hero__copy) { padding: 29px 26px 26px; }
+  .scope :global(.home-hero--open-door .home-hero__copy::before) { inset: 10px; }
+  .scope :global(.home-hero--open-door .home-hero__door-seam) { width: 10px; }
+  .scope :global(.home-hero--open-door .home-hero__door-seam i) { height: 17px; width: 3px; }
+  .scope :global(.home-hero--open-door .home-hero__title) { font-size: clamp(39px, 9.6vw, 52px); }
+  .scope :global(.home-hero--open-door .home-hero__description) { margin-top: 17px; }
+  .scope :global(.home-hero--open-door .home-hero__actions) { margin-top: 16px; }
+  .scope :global(.home-hero--open-door .home-hero__location) { margin-top: 16px; }
+  .scope :global(.home-hero--open-door .home-hero__media) { padding: 8px 0 5px; }
+  .scope :global(.home-hero--open-door .home-hero__photo-wrap) { --diagonal-corner: clamp(34px, 10vw, 64px); }
+  .scope :global(.home-hero--open-door .home-hero__photo-main--natural) { max-height: min(62vh, 530px); }
+  .scope :global(.home-hero--open-door .home-hero__caption) { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scope :global(.home-hero--open-door .home-hero__photo-main--natural) { transition: none; }
+}

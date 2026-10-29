@@ -1,0 +1,52 @@
+.scope {
+  display: contents;
+}
+
+@media (min-width: 901px) {
+  .scope :global(.coverage-stage){
+    contain: layout paint style;
+  }
+
+  .scope :global(.coverage-stage__ambient){
+    background: radial-gradient(
+      circle,
+      rgba(var(--brand-primary-rgb), 0.075),
+      rgba(var(--brand-primary-rgb), 0) 68%
+    );
+    filter: none;
+  }
+
+  .scope :global(.nova-map__glow){
+    background: radial-gradient(
+      circle,
+      rgba(var(--text-primary-rgb), 0.045),
+      rgba(var(--text-primary-rgb), 0) 70%
+    );
+    filter: none;
+  }
+
+  .scope :global(.coverage-selection){
+    background:
+      linear-gradient(
+        135deg,
+        rgba(var(--text-primary-rgb), 0.035),
+        rgba(var(--brand-primary-rgb), 0.035)
+      ),
+      rgba(3, 8, 11, 0.94);
+    backdrop-filter: none;
+  }
+
+  .scope :global(.nova-map__network-line){
+    filter: none;
+  }
+
+  .scope :global(.coverage-transition > span),
+.scope :global(.coverage-transition > i),
+.scope :global(.coverage-stage),
+.scope :global(.coverage-copy > *),
+.scope :global(.coverage-selection),
+.scope :global(.nova-map),
+.scope :global(.coverage-city-strip){
+    will-change: opacity, transform;
+  }
+}

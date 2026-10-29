@@ -1,0 +1,110 @@
+/* THRESHOLD — a typographic opening, not an animated illustration. */
+.scope :global(.threshold-opening) {
+  position: fixed; inset: 0; z-index: 9999; isolation: isolate;
+  background: var(--surface-dark); color: var(--text-primary);
+  overflow: hidden; will-change: transform;
+}
+.scope :global(.threshold-opening::before) {
+  content: ""; position: absolute; pointer-events: none;
+  inset: auto 0 0; height: 1px; background: rgba(var(--text-primary-rgb), .09);
+}
+.scope :global(.threshold-opening__top) {
+  position: absolute; top: clamp(26px, 3.4vw, 52px);
+  left: var(--hero-edge); right: var(--hero-edge);
+  display: flex; align-items: center; justify-content: space-between; gap: 26px;
+  opacity: 0; animation: thresholdFade .65s .2s ease forwards;
+}
+.scope :global(.threshold-opening__brand) { display: inline-flex; max-width: min(168px, 43vw); }
+.scope :global(.threshold-opening__brand .brand__logo) { max-width: 100%; height: auto; }
+.scope :global(.threshold-opening__eyebrow) {
+  max-width: 50%; color: rgba(var(--text-primary-rgb), .6);
+  font-size: 10px; font-weight: 760; letter-spacing: .19em; text-transform: uppercase;
+  text-align: right; line-height: 1.6;
+}
+.scope :global(.threshold-opening__center) {
+  position: absolute; left: var(--hero-edge); right: var(--hero-edge);
+  top: 48%; transform: translateY(-50%);
+  width: min(100% - 2 * var(--hero-edge), 1380px); margin-inline: auto;
+}
+.scope :global(.threshold-opening__intro-mark) {
+  color: var(--brand-secondary); font-size: clamp(20px, 2vw, 32px);
+  font-weight: 300; line-height: 1; margin-bottom: clamp(25px, 4.5vh, 55px);
+  opacity: 0; animation: thresholdFade .4s .12s ease forwards;
+}
+.scope :global(.threshold-opening__words) { margin: 0; font-weight: 620; line-height: .99; letter-spacing: -.066em; }
+.scope :global(.threshold-opening__words span),
+.scope :global(.threshold-opening__words strong) { display: block; overflow-wrap: anywhere; }
+.scope :global(.threshold-opening__words span) {
+  font-weight: 560; font-size: clamp(54px, 8.3vw, 162px);
+  opacity: 0; transform: translateY(42px);
+  animation: thresholdWord .9s .22s cubic-bezier(.16,1,.3,1) forwards;
+}
+.scope :global(.threshold-opening__words strong) {
+  width: fit-content; max-width: 100%;
+  margin-top: clamp(3px, .8vw, 15px);
+  color: var(--brand-secondary); font-family: Georgia, Cambria, serif;
+  font-weight: 400; font-style: italic;
+  font-size: clamp(52px, 8.1vw, 158px);
+  opacity: 0; transform: translateY(42px);
+  animation: thresholdWord .95s .34s cubic-bezier(.16,1,.3,1) forwards;
+}
+.scope :global(.threshold-opening__detail) {
+  width: min(100%, 510px); margin: clamp(24px, 4vh, 49px) 0 0;
+  color: rgba(var(--text-primary-rgb), .53);
+  font-size: clamp(13px, 1.1vw, 17px); line-height: 1.65;
+  opacity: 0; animation: thresholdFade .7s .63s ease forwards;
+}
+.scope :global(.threshold-opening__bottom) {
+  position: absolute; left: var(--hero-edge); right: var(--hero-edge);
+  bottom: clamp(26px, 3.5vw, 56px);
+  display: grid; grid-template-columns: minmax(0,1fr) auto;
+  align-items: end; gap: 20px;
+  opacity: 0; animation: thresholdFade .65s .48s ease forwards;
+}
+.scope :global(.threshold-opening__progress) {
+  grid-column: 1 / -1; height: 1px;
+  background: rgba(var(--text-primary-rgb), .2); overflow: hidden;
+}
+.scope :global(.threshold-opening__progress > span) {
+  display: block; width: 100%; height: 100%; background: var(--brand-secondary);
+  transform-origin: left center; transform: scaleX(0);
+  animation: thresholdProgress 1.52s .4s cubic-bezier(.65,0,.35,1) forwards;
+}
+.scope :global(.threshold-opening__place),
+.scope :global(.threshold-opening__credit) {
+  text-transform: uppercase; letter-spacing: .16em; font-size: 10px; font-weight: 740;
+  color: rgba(var(--text-primary-rgb), .56);
+}
+.scope :global(.threshold-opening__credit) { text-align: right; }
+.scope :global(.threshold-opening__skip) {
+  position: absolute; right: var(--hero-edge); top: clamp(86px, 9vw, 132px);
+  display: inline-flex; align-items: center; gap: 12px;
+  z-index: 2; color: var(--text-primary); border: 1px solid rgba(var(--text-primary-rgb), .24);
+  border-radius: 3px; background: rgba(var(--surface-dark-alt-rgb), .55);
+  min-height: 42px; padding: 9px 13px; cursor: pointer;
+  font-size: 11px; font-weight: 760; letter-spacing: .06em;
+  transition: background .2s ease, border-color .2s ease;
+}
+.scope :global(.threshold-opening__skip:hover),
+.scope :global(.threshold-opening__skip:focus-visible) { background: var(--surface-elevated); border-color: var(--brand-secondary); }
+.scope :global(.threshold-opening__skip > span) { font-size: 16px; }
+/* The entire sheet lifts as ONE surface. Not a left/right curtain. */
+.scope :global(.threshold-opening.is-exiting) {
+  pointer-events: none;
+  transform: translate3d(0,-105%,0);
+  transition: transform .82s cubic-bezier(.75,0,.20,1);
+}
+@keyframes thresholdFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes thresholdWord { from { opacity: 0; transform: translateY(42px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes thresholdProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (max-width: 650px) {
+  .scope :global(.threshold-opening__eyebrow) { font-size: 9px; max-width: 44%; }
+  .scope :global(.threshold-opening__words span) { font-size: clamp(42px, 12vw, 79px); }
+  .scope :global(.threshold-opening__words strong) { font-size: clamp(43px, 12vw, 80px); }
+  .scope :global(.threshold-opening__detail) { margin-top: 23px; }
+  .scope :global(.threshold-opening__skip) { top: clamp(104px, 26vw, 140px); }
+  .scope :global(.threshold-opening__center) { top: 47%; }
+}
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  .scope :global(.threshold-opening) { display: none; }
+}

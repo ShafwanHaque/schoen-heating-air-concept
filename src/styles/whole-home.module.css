@@ -1,0 +1,1616 @@
+.scope {
+  display: contents;
+}
+
+.scope :global(.whole-system-section){
+  position: relative;
+  height: 650svh;
+  min-height: 4200px;
+  overflow: clip;
+  contain: paint;
+  background: var(--surface-dark);
+  color: var(--text-primary);
+}
+
+.scope :global(.whole-system-stage){
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  min-height: 700px;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(var(--network-line-rgb), 0.22), transparent 42%),
+    linear-gradient(180deg, var(--surface-dark) 0%, var(--surface-dark-alt) 50%, var(--page-bg) 100%);
+}
+
+.scope :global(.whole-system-stage::before),
+.scope :global(.whole-system-stage::after){
+  content: "";
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.scope :global(.whole-system-stage::before){
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--page-bg-rgb), 0.75) 0%,
+      transparent 18%,
+      transparent 70%,
+      rgba(var(--page-bg-rgb), 0.76) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(var(--page-bg-rgb), 0.66) 0%,
+      transparent 22%,
+      transparent 76%,
+      rgba(var(--page-bg-rgb), 0.54) 100%
+    );
+}
+
+.scope :global(.whole-system-stage::after){
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--brand-primary-rgb), 0.55),
+    transparent
+  );
+}
+
+.scope :global(.whole-system-stage__shade){
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 52%,
+      transparent 0 28%,
+      rgba(1, 3, 4, 0.16) 58%,
+      rgba(1, 3, 4, 0.55) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.12),
+      transparent 34%,
+      rgba(0, 0, 0, 0.14)
+    );
+}
+
+.scope :global(.whole-system-stage__grain){
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  opacity: 0.022;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      17deg,
+      transparent 0 3px,
+      rgba(var(--text-primary-rgb), 0.2) 3px 4px
+    ),
+    repeating-linear-gradient(
+      103deg,
+      transparent 0 5px,
+      rgba(var(--text-primary-rgb), 0.12) 5px 6px
+    );
+  background-size:
+    19px 19px,
+    27px 27px;
+}
+
+.scope :global(.whole-system-kicker){
+  position: absolute;
+  z-index: 12;
+  top: clamp(26px, 4.3vh, 52px);
+  left: clamp(24px, 4.2vw, 72px);
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: rgba(var(--text-primary-rgb), 0.68);
+  font-size: clamp(12px, 0.82vw, 15px);
+  font-weight: 780;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scope :global(.whole-system-kicker span){
+  width: 30px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--red-bright), var(--cyan));
+  box-shadow: 0 0 18px rgba(var(--brand-primary-rgb), 0.45);
+}
+
+.scope :global(.whole-system-scene){
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scope :global(.whole-system-scene__camera){
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(var(--brand-primary-rgb), 0.18), transparent 20%),
+    radial-gradient(circle at 50% 52%, rgba(var(--brand-secondary-rgb), 0.07), transparent 34%),
+    var(--surface-dark) url("/visuals/whole-home-city.webp") center / cover no-repeat;
+  transform: translate3d(0, 0, 0);
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: paint;
+}
+
+.scope :global(.whole-system-scene__svg){
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scope :global([data-system-tile]),
+.scope :global([data-system-home]),
+.scope :global([data-route-node]){
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.scope :global(.whole-system-home-anchor),
+.scope :global(.whole-system-service-hub-anchor),
+.scope :global(.whole-system-route-node-anchor){
+  transform-box: view-box;
+}
+
+.scope :global(.whole-system-city){
+  will-change: opacity;
+}
+
+.scope :global(.whole-system-building__top){
+  fill: url(#system-building-top);
+  stroke: rgba(var(--text-primary-rgb), 0.045);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-building__left){
+  fill: var(--surface-dark);
+  stroke: rgba(var(--text-primary-rgb), 0.025);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-building__right){
+  fill: var(--surface-dark-alt);
+  stroke: rgba(var(--text-primary-rgb), 0.03);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-building--tone-1 .whole-system-building__top){
+  fill: var(--surface-elevated);
+}
+
+.scope :global(.whole-system-building--tone-1 .whole-system-building__right){
+  fill: var(--surface-dark-alt);
+}
+
+.scope :global(.whole-system-building--tone-2 .whole-system-building__top){
+  fill: var(--surface-elevated);
+}
+
+.scope :global(.whole-system-building--tone-2 .whole-system-building__left){
+  fill: var(--surface-dark);
+}
+
+.scope :global(.whole-system-building--tone-3 .whole-system-building__top){
+  fill: var(--surface-dark-alt);
+}
+
+.scope :global(.whole-system-building--tone-3 .whole-system-building__right){
+  fill: var(--surface-dark-alt);
+}
+
+.scope :global(.whole-system-building__windows line){
+  stroke: rgba(122, 151, 160, 0.12);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.scope :global(.whole-system-route-beds path){
+  fill: none;
+  stroke: rgba(var(--text-primary-rgb), 0.055);
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-route){
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-route--halo){
+  stroke: url(#system-route-gradient);
+  stroke-width: 11;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  will-change: stroke-dashoffset;
+}
+
+.scope :global(.whole-system-route-head){
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scope :global(.whole-system-route-head__halo){
+  fill: rgba(255, 122, 69, 0.12);
+  stroke: rgba(255, 152, 88, 0.16);
+  stroke-width: 7;
+}
+
+.scope :global(.whole-system-route-head__ring){
+  fill: rgba(255, 122, 69, 0.2);
+  stroke: rgba(255, 194, 137, 0.86);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-route-head__core){
+  fill: color-mix(in srgb, var(--brand-accent) 30%, var(--surface-soft));
+  stroke: var(--brand-accent);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-route--core){
+  stroke: rgba(255, 188, 126, 0.22);
+  stroke-width: 2.5;
+  opacity: 0;
+}
+
+.scope :global(.whole-system-route-node__outer){
+  fill: rgba(255, 122, 69, 0.16);
+  stroke: rgba(255, 170, 102, 0.92);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-route-node__glow){
+  fill: rgba(255, 122, 69, 0.09);
+  stroke: rgba(255, 152, 88, 0.18);
+  stroke-width: 8;
+}
+
+.scope :global(.whole-system-route-node__inner){
+  fill: var(--brand-accent);
+}
+
+.scope :global(.whole-system-route-start__outer){
+  fill: rgba(255, 122, 69, 0.14);
+  stroke: rgba(255, 174, 106, 0.78);
+  stroke-width: 1.5;
+}
+
+.scope :global(.whole-system-route-start__inner){
+  fill: var(--brand-accent);
+}
+
+.scope :global(.whole-system-platform__top){
+  fill: url(#system-platform-top);
+  stroke: rgba(var(--text-primary-rgb), 0.13);
+  stroke-width: 1.2;
+}
+
+.scope :global(.whole-system-platform__left){
+  fill: var(--surface-dark);
+  stroke: rgba(var(--text-primary-rgb), 0.055);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-platform__right){
+  fill: var(--surface-dark-alt);
+  stroke: rgba(var(--text-primary-rgb), 0.06);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-service-hub__shadow),
+.scope :global(.whole-system-home__shadow){
+  fill: rgba(0, 0, 0, 0.42);
+}
+
+.scope :global(.whole-system-service-hub){
+  opacity: 0.22;
+}
+
+.scope :global(.whole-system-service-hub .whole-system-platform__top){
+  fill: rgba(31, 42, 47, 0.96);
+}
+
+.scope :global(.whole-system-service-hub__label rect){
+  fill: rgba(3, 8, 10, 0.9);
+  stroke: rgba(var(--text-primary-rgb), 0.15);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-service-hub__label text){
+  fill: rgba(var(--text-primary-rgb), 0.78);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.01em;
+}
+
+.scope :global(.whole-system-service-hub__dock line){
+  stroke: rgba(255, 145, 82, 0.54);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.scope :global(.whole-system-service-hub__dock circle){
+  fill: rgba(7, 12, 14, 0.96);
+  stroke: rgba(255, 150, 88, 0.72);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-home){
+  opacity: 1;
+}
+
+.scope :global(.whole-system-home .whole-system-platform__top){
+  fill: var(--surface-elevated);
+  stroke: rgba(255, 135, 73, 0.58);
+  stroke-width: 1.8;
+}
+
+.scope :global(.whole-system-home .whole-system-platform__left){
+  fill: var(--surface-dark);
+}
+
+.scope :global(.whole-system-home .whole-system-platform__right){
+  fill: var(--surface-dark-alt);
+}
+
+.scope :global(.whole-system-office__podium-left),
+.scope :global(.whole-system-office__podium-right){
+  fill: rgba(6, 10, 12, 0.92);
+  stroke: rgba(var(--text-primary-rgb), 0.06);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-office__body-left){
+  fill: url(#system-home-left);
+  stroke: rgba(var(--text-primary-rgb), 0.09);
+  stroke-width: 1.1;
+}
+
+.scope :global(.whole-system-office__body-right){
+  fill: url(#system-home-side);
+  stroke: rgba(var(--text-primary-rgb), 0.12);
+  stroke-width: 1.1;
+}
+
+.scope :global(.whole-system-office__roof-eave-left),
+.scope :global(.whole-system-office__roof-eave-right){
+  fill: rgba(17, 24, 28, 0.95);
+  stroke: rgba(var(--text-primary-rgb), 0.07);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-office__roof-left){
+  fill: var(--brand-primary);
+  stroke: rgba(var(--text-primary-rgb), 0.18);
+  stroke-width: 1.1;
+}
+
+.scope :global(.whole-system-office__roof-right){
+  fill: url(#system-home-roof);
+  stroke: rgba(var(--text-primary-rgb), 0.18);
+  stroke-width: 1.1;
+}
+
+.scope :global(.whole-system-office__roof-cap){
+  fill: rgba(247, 125, 84, 0.95);
+  stroke: rgba(var(--text-primary-rgb), 0.14);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-office__windows path){
+  fill: none;
+  stroke: rgba(189, 247, 255, 0.42);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 6 12;
+}
+
+.scope :global(.whole-system-office__entry-left),
+.scope :global(.whole-system-office__entry-right){
+  fill: url(#system-home-base);
+  stroke: rgba(var(--text-primary-rgb), 0.09);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-office__entry-top){
+  fill: rgba(11, 17, 20, 0.96);
+  stroke: rgba(var(--text-primary-rgb), 0.11);
+  stroke-width: 1;
+}
+
+.scope :global(.whole-system-office__entry-door){
+  fill: none;
+  stroke: rgba(140, 230, 244, 0.55);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+
+.scope :global(.whole-system-office__sign){
+  fill: url(#system-home-sign);
+  stroke: rgba(var(--text-primary-rgb), 0.26);
+  stroke-width: 1.3;
+}
+
+.scope :global(.whole-system-office__icon){
+  overflow: hidden;
+  opacity: 0.98;
+}
+
+.scope :global(.whole-system-office__subcopy){
+  fill: rgba(190, 243, 248, 0.82);
+  font-size: 8.4px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.scope :global(.whole-system-office__nameplate polygon){
+  fill: rgba(5, 10, 13, 0.97);
+  stroke: rgba(255, 139, 78, 0.62);
+  stroke-width: 1.55;
+}
+
+.scope :global(.whole-system-office__nameplate text){
+  fill: rgba(var(--text-primary-rgb), 0.92);
+  font-size: 14px;
+  font-weight: 860;
+  letter-spacing: 0.22em;
+}
+
+.scope :global(.whole-system-office__nameplate-sub){
+  fill: rgba(175, 194, 202, 0.85);
+  font-size: 7.6px;
+  font-weight: 760;
+  letter-spacing: 0.16em;
+}
+
+.scope :global(.whole-system-office__ports circle){
+  fill: var(--brand-accent);
+  stroke: rgba(255, 190, 132, 0.88);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-home__pulse ellipse){
+  fill: none;
+  stroke: rgba(var(--brand-secondary-rgb), 0.2);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: var(--kf-whole-system-pulse) 3.4s ease-out infinite;
+  animation-play-state: paused;
+}
+
+.scope :global(.whole-system-home__pulse ellipse + ellipse){
+  animation-delay: 1.1s;
+}
+
+.scope :global(.whole-system-section.is-system-visible .whole-system-home__pulse ellipse){
+  animation-play-state: running;
+}
+
+.scope :global(.whole-system-art__pipe){
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-art__pipe--cyan){
+  stroke: var(--brand-secondary);
+}
+
+.scope :global(.whole-system-art__pipe--red){
+  stroke: var(--brand-primary);
+}
+
+.scope :global(.whole-system-art__unit),
+.scope :global(.whole-system-art__tune-box){
+  fill: var(--surface-elevated);
+  stroke: rgba(var(--text-primary-rgb), 0.25);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__fan),
+.scope :global(.whole-system-art__tune-ring){
+  fill: var(--surface-dark);
+  stroke: var(--brand-secondary);
+  stroke-width: 3;
+}
+
+.scope :global(.whole-system-art__fan-lines),
+.scope :global(.whole-system-art__tune-blades){
+  fill: none;
+  stroke: rgba(var(--text-primary-rgb), 0.78);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-art__pipe-ring){
+  fill: var(--surface-elevated);
+  stroke: var(--brand-secondary);
+  stroke-width: 4;
+}
+
+.scope :global(.whole-system-art__pipe-hole){
+  fill: var(--page-bg);
+  stroke: rgba(var(--text-primary-rgb), 0.3);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__drain-line){
+  fill: none;
+  stroke: var(--brand-primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.scope :global(.whole-system-art__flow-dot){
+  fill: var(--text-primary);
+}
+
+.scope :global(.whole-system-art__tune-ring){
+  stroke: var(--brand-primary);
+}
+
+.scope :global(.whole-system-art__tune-center){
+  fill: var(--brand-secondary);
+}
+
+.scope :global(.whole-system-art__filter-back){
+  fill: var(--surface-dark-alt);
+  stroke: rgba(var(--text-primary-rgb), 0.18);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__filter-front){
+  fill: rgba(var(--brand-secondary-rgb), 0.48);
+  stroke: color-mix(in srgb, var(--brand-secondary) 58%, white);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__filter-front--top){
+  fill: rgba(var(--brand-primary-rgb), 0.42);
+  stroke: color-mix(in srgb, var(--brand-primary) 72%, white);
+}
+
+.scope :global(.whole-system-art__filter-lines){
+  fill: none;
+  stroke: rgba(var(--text-primary-rgb), 0.78);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__thermostat-side){
+  fill: var(--surface-dark-alt);
+  stroke: rgba(var(--text-primary-rgb), 0.18);
+  stroke-width: 1.5;
+}
+
+.scope :global(.whole-system-art__thermostat-screen){
+  fill: var(--surface-elevated);
+  stroke: var(--brand-secondary);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-art__thermostat-ring){
+  fill: var(--surface-dark);
+  stroke: var(--brand-primary);
+  stroke-width: 3;
+}
+
+.scope :global(.whole-system-art__thermostat-temp){
+  fill: var(--text-primary);
+  font-size: 11px;
+  font-weight: 780;
+}
+
+.scope :global(.whole-system-service-hub--slot-1),
+.scope :global(.whole-system-route-node--slot-1),
+.scope :global(.whole-system-card--slot-1),
+.scope :global(.whole-system-static-item--slot-1){
+  --service-accent: var(--service-1);
+  --service-accent-rgb: var(--service-1-rgb);
+}
+
+.scope :global(.whole-system-service-hub--slot-2),
+.scope :global(.whole-system-route-node--slot-2),
+.scope :global(.whole-system-card--slot-2),
+.scope :global(.whole-system-static-item--slot-2){
+  --service-accent: var(--service-2);
+  --service-accent-rgb: var(--service-2-rgb);
+}
+
+.scope :global(.whole-system-service-hub--slot-3),
+.scope :global(.whole-system-route-node--slot-3),
+.scope :global(.whole-system-card--slot-3),
+.scope :global(.whole-system-static-item--slot-3){
+  --service-accent: var(--service-3);
+  --service-accent-rgb: var(--service-3-rgb);
+}
+
+.scope :global(.whole-system-service-hub--slot-4),
+.scope :global(.whole-system-route-node--slot-4),
+.scope :global(.whole-system-card--slot-4),
+.scope :global(.whole-system-static-item--slot-4){
+  --service-accent: var(--service-4);
+  --service-accent-rgb: var(--service-4-rgb);
+}
+
+.scope :global(.whole-system-service-hub--slot-5),
+.scope :global(.whole-system-route-node--slot-5),
+.scope :global(.whole-system-card--slot-5),
+.scope :global(.whole-system-static-item--slot-5){
+  --service-accent: var(--service-5);
+  --service-accent-rgb: var(--service-5-rgb);
+}
+
+.scope :global(.whole-system-service-hub__shadow){
+  fill: rgba(0, 0, 0, 0.56);
+}
+
+.scope :global(.whole-system-service-hub .whole-system-platform__top){
+  fill: var(--surface-elevated);
+  stroke: rgba(var(--text-primary-rgb), 0.2);
+  stroke-width: 1.35;
+}
+
+.scope :global(.whole-system-service-hub .whole-system-platform__left){
+  fill: var(--surface-dark);
+}
+
+.scope :global(.whole-system-service-hub .whole-system-platform__right){
+  fill: var(--surface-dark-alt);
+}
+
+.scope :global(.whole-system-service-hub__ambient){
+  fill: rgba(var(--service-accent-rgb), 0.2);
+  stroke: rgba(var(--service-accent-rgb), 0.32);
+  stroke-width: 2;
+}
+
+.scope :global(.whole-system-service-hub__accent polygon){
+  fill: rgba(var(--service-accent-rgb), 0.2);
+  stroke: var(--service-accent);
+  stroke-width: 2.1;
+}
+
+.scope :global(.whole-system-service-hub__accent path){
+  fill: none;
+  stroke: rgba(var(--service-accent-rgb), 0.72);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.scope :global(.whole-system-service-hub__monument-shell){
+  fill: rgba(5, 10, 13, 0.98);
+  stroke: rgba(var(--text-primary-rgb), 0.22);
+  stroke-width: 1.6;
+}
+
+.scope :global(.whole-system-service-hub__monument-screen){
+  fill: rgba(18, 27, 31, 0.98);
+  stroke: rgba(var(--service-accent-rgb), 0.28);
+  stroke-width: 1.5;
+}
+
+.scope :global(.whole-system-service-hub__image){
+  opacity: 0.92;
+  filter: saturate(0.72) contrast(1.08);
+}
+
+.scope :global(.whole-system-service-hub__image-tint){
+  fill: rgba(var(--service-accent-rgb), 0.12);
+  stroke: rgba(var(--service-accent-rgb), 0.5);
+  stroke-width: 1.2;
+  pointer-events: none;
+}
+
+.scope :global(.whole-system-service-hub__monument-base){
+  fill: rgba(7, 13, 16, 0.98);
+  stroke: rgba(var(--service-accent-rgb), 0.45);
+  stroke-width: 1.3;
+}
+
+.scope :global(.whole-system-service-glyph){
+  color: rgba(var(--text-primary-rgb), 0.68);
+}
+
+.scope :global(.whole-system-service-glyph__frame),
+.scope :global(.whole-system-service-glyph__primary),
+.scope :global(.whole-system-service-glyph__secondary){
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-service-glyph__frame){
+  stroke-width: 2.25;
+  opacity: 0.92;
+}
+
+.scope :global(.whole-system-service-glyph__primary){
+  stroke-width: 2.65;
+}
+
+.scope :global(.whole-system-service-glyph__secondary){
+  stroke-width: 1.8;
+  opacity: 0.82;
+}
+
+.scope :global(.whole-system-service-glyph__dot){
+  fill: currentColor;
+  stroke: none;
+}
+
+.scope :global(.whole-system-service-glyph__temperature){
+  fill: currentColor;
+  stroke: none;
+  font-size: 8px;
+  font-weight: 820;
+  letter-spacing: -0.04em;
+}
+
+.scope :global(.whole-system-service-glyph--tile){
+  color: rgba(var(--text-primary-rgb), 0.68);
+}
+
+.scope :global(.whole-system-service-hub__dock line){
+  stroke: rgba(var(--service-accent-rgb), 0.72);
+  stroke-width: 4.5;
+}
+
+.scope :global(.whole-system-service-hub__dock circle){
+  fill: var(--surface-dark);
+  stroke: var(--service-accent);
+  stroke-width: 2.3;
+}
+
+.scope :global(.whole-system-service-hub__label){
+  color: rgba(var(--text-primary-rgb), 0.7);
+}
+
+.scope :global(.whole-system-service-hub__label rect){
+  fill: rgba(3, 8, 10, 0.95);
+  stroke: currentColor;
+  stroke-width: 1.25;
+}
+
+.scope :global(.whole-system-service-hub__label text){
+  fill: currentColor;
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: 0.005em;
+}
+
+.scope :global(.whole-system-route-node__outer){
+  fill: rgba(var(--service-accent-rgb), 0.17);
+  stroke: var(--service-accent);
+  stroke-width: 2.2;
+}
+
+.scope :global(.whole-system-route-node__glow){
+  fill: rgba(var(--service-accent-rgb), 0.1);
+  stroke: rgba(var(--service-accent-rgb), 0.24);
+  stroke-width: 9;
+}
+
+.scope :global(.whole-system-route-node__inner){
+  fill: var(--service-accent);
+}
+
+.scope :global(.whole-system-intro){
+  position: absolute;
+  z-index: 14;
+  right: 20px;
+  bottom: clamp(60px, 8.5vh, 102px);
+  left: 20px;
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.scope :global(.whole-system-intro p){
+  margin: 0 0 13px;
+  color: rgba(var(--text-primary-rgb), 0.62);
+  font-size: clamp(13px, 0.95vw, 17px);
+  font-weight: 760;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scope :global(.whole-system-intro h2){
+  margin: 0;
+  font-size: clamp(48px, 5.6vw, 96px);
+  font-weight: 570;
+  letter-spacing: -0.062em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.scope :global(.whole-system-intro h2 span){
+  display: block;
+  color: rgba(var(--text-primary-rgb), 0.72);
+}
+
+.scope :global(.whole-system-intro__line){
+  width: min(240px, 42vw);
+  height: 2px;
+  margin: 26px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan),
+    var(--red-bright),
+    transparent
+  );
+  box-shadow: 0 0 22px rgba(var(--brand-primary-rgb), 0.46);
+}
+
+.scope :global(.whole-system-cards){
+  position: absolute;
+  z-index: 16;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scope :global(.whole-system-card){
+  position: absolute;
+  width: min(390px, 30vw);
+  min-width: 320px;
+  padding: clamp(22px, 2vw, 30px);
+  border: 1px solid rgba(var(--text-primary-rgb), 0.17);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(var(--brand-secondary-rgb), 0.12),
+      transparent 35%
+    ),
+    linear-gradient(145deg, rgba(26, 33, 37, 0.92), rgba(8, 13, 16, 0.92));
+  box-shadow: 0 26px 74px rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scope :global(.whole-system-card::before){
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  width: 92px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--red-bright),
+    var(--cyan),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(var(--brand-primary-rgb), 0.45);
+}
+
+.scope :global(.whole-system-card--slot-1){
+  top: 28%;
+  left: clamp(30px, 6vw, 108px);
+}
+
+.scope :global(.whole-system-card--slot-2){
+  top: 27%;
+  right: clamp(46px, 8vw, 142px);
+}
+
+.scope :global(.whole-system-card--slot-3){
+  right: clamp(54px, 9vw, 160px);
+  bottom: 13%;
+}
+
+.scope :global(.whole-system-card--slot-4){
+  bottom: 13%;
+  left: clamp(40px, 8vw, 136px);
+}
+
+.scope :global(.whole-system-card--slot-5){
+  right: 23%;
+  bottom: 10%;
+}
+
+.scope :global(.whole-system-card__topline){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.scope :global(.whole-system-card__topline > span){
+  color: rgba(var(--text-primary-rgb), 0.42);
+  font-size: 13px;
+  font-weight: 820;
+  letter-spacing: 0.18em;
+}
+
+.scope :global(.whole-system-card__icon){
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(var(--text-primary-rgb), 0.15);
+  border-radius: 14px;
+  background: rgba(var(--text-primary-rgb), 0.055);
+}
+
+.scope :global(.whole-system-card__icon img){
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+  filter: saturate(.7) contrast(1.05);
+}
+
+.scope :global(.whole-system-card h3){
+  margin: 22px 0 0;
+  font-size: clamp(29px, 2.15vw, 42px);
+  font-weight: 610;
+  letter-spacing: -0.048em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.scope :global(.whole-system-card p){
+  margin: 16px 0 0;
+  color: rgba(var(--text-primary-rgb), 0.67);
+  font-size: clamp(15px, 1vw, 17px);
+  line-height: 1.55;
+}
+
+.scope :global(.whole-system-card__signal){
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(var(--text-primary-rgb), 0.48);
+  font-size: 12px;
+  font-weight: 710;
+  letter-spacing: 0.02em;
+}
+
+.scope :global(.whole-system-card__signal span){
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red-bright);
+  box-shadow:
+    0 0 0 5px rgba(var(--brand-primary-rgb), 0.12),
+    0 0 18px rgba(var(--brand-primary-rgb), 0.72);
+}
+
+.scope :global(.whole-system-card){
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(var(--service-accent-rgb), 0.16),
+      transparent 38%
+    ),
+    linear-gradient(145deg, rgba(26, 33, 37, 0.94), rgba(8, 13, 16, 0.94));
+}
+
+.scope :global(.whole-system-card::before){
+  background: linear-gradient(
+    90deg,
+    var(--service-accent),
+    rgba(var(--text-primary-rgb), 0.68),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(var(--service-accent-rgb), 0.5);
+}
+
+.scope :global(.whole-system-card__icon){
+  border-color: rgba(var(--service-accent-rgb), 0.34);
+  background: rgba(var(--service-accent-rgb), 0.09);
+}
+
+.scope :global(.whole-system-card__icon img){
+  box-shadow: inset 0 0 0 1px rgba(var(--service-accent-rgb), .28);
+}
+
+.scope :global(.whole-system-card__signal span){
+  background: var(--service-accent);
+  box-shadow:
+    0 0 0 5px rgba(var(--service-accent-rgb), 0.12),
+    0 0 18px rgba(var(--service-accent-rgb), 0.72);
+}
+
+.scope :global(.whole-system-progress){
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  right: clamp(22px, 3.2vw, 58px);
+  width: 174px;
+  display: grid;
+  gap: 13px;
+  transform: translateY(-50%);
+}
+
+.scope :global(.whole-system-progress__label){
+  margin-bottom: 4px;
+  color: rgba(var(--text-primary-rgb), 0.34);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scope :global(.whole-system-progress > div){
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px 22px;
+  align-items: center;
+  gap: 9px;
+  color: rgba(var(--text-primary-rgb), 0.72);
+  will-change: opacity;
+}
+
+.scope :global(.whole-system-progress > div > span){
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 650;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scope :global(.whole-system-progress i){
+  height: 1px;
+  display: block;
+  overflow: hidden;
+  background: rgba(var(--text-primary-rgb), 0.16);
+}
+
+.scope :global(.whole-system-progress i b){
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, var(--red-bright), var(--cyan));
+}
+
+.scope :global(.whole-system-progress em){
+  color: rgba(var(--text-primary-rgb), 0.34);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 760;
+}
+
+.scope :global(.whole-system-summary){
+  position: absolute;
+  z-index: 18;
+  top: 50%;
+  left: 50%;
+  width: min(calc(100% - 48px), 720px);
+  padding: clamp(28px, 3.5vw, 48px);
+  border: 1px solid rgba(var(--text-primary-rgb), 0.18);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--brand-primary-rgb), 0.14), transparent 42%),
+    rgba(5, 10, 13, 0.88);
+  box-shadow: 0 38px 120px rgba(0, 0, 0, 0.58);
+  text-align: center;
+  translate: -50% -50%;
+  transform: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scope :global(.whole-system-summary > span){
+  color: var(--brand-accent);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.scope :global(.whole-system-summary h3){
+  margin: 14px auto 0;
+  max-width: 620px;
+  font-size: clamp(38px, 4.2vw, 68px);
+  font-weight: 590;
+  letter-spacing: -0.058em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.scope :global(.whole-system-summary p){
+  max-width: 560px;
+  margin: 20px auto 0;
+  color: rgba(var(--text-primary-rgb), 0.65);
+  font-size: clamp(15px, 1.05vw, 18px);
+  line-height: 1.55;
+}
+
+.scope :global(.whole-system-summary a){
+  min-height: 52px;
+  margin-top: 28px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 14px 36px rgba(var(--brand-primary-rgb), 0.25);
+  font-size: 15px;
+  font-weight: 760;
+  pointer-events: auto;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.scope :global(.whole-system-summary a:hover){
+  background: var(--red-bright);
+  transform: translateY(-2px);
+}
+
+.scope :global(.whole-system-summary a svg){
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-scroll-cue){
+  position: absolute;
+  z-index: 14;
+  bottom: 22px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(var(--text-primary-rgb), 0.36);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.scope :global(.whole-system-scroll-cue span){
+  width: 42px;
+  height: 1px;
+  display: block;
+  background: linear-gradient(90deg, transparent, rgba(var(--text-primary-rgb), 0.58));
+}
+
+.scope :global(.whole-system-static-list){
+  display: none;
+}
+
+.scope :global(.whole-system-section.is-system-static){
+  height: auto;
+  min-height: 0;
+  padding-bottom: 80px;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-stage){
+  position: relative;
+  min-height: 820px;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-route--halo){
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-route-heads){
+  display: none;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-service-hub){
+  opacity: 1;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-progress),
+.scope :global(.whole-system-section.is-system-static .whole-system-cards),
+.scope :global(.whole-system-section.is-system-static .whole-system-summary),
+.scope :global(.whole-system-section.is-system-static .whole-system-scroll-cue){
+  display: none;
+}
+
+.scope :global(.whole-system-section.is-system-static .whole-system-static-list){
+  width: min(calc(100% - 48px), 1320px);
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.scope :global(.whole-system-static-list article){
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid rgba(var(--text-primary-rgb), 0.1);
+  border-radius: 20px;
+  background: rgba(var(--text-primary-rgb), 0.035);
+}
+
+.scope :global(.whole-system-static-list article > div){
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(var(--brand-secondary-rgb), 0.08);
+}
+
+.scope :global(.whole-system-static-list svg){
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scope :global(.whole-system-static-list span){
+  margin-top: 18px;
+  display: block;
+  color: rgba(var(--text-primary-rgb), 0.35);
+  font-size: 11px;
+  font-weight: 780;
+  letter-spacing: 0.15em;
+}
+
+.scope :global(.whole-system-static-list h3){
+  margin: 10px 0 0;
+  font-size: 23px;
+  line-height: 1.02;
+}
+
+.scope :global(.whole-system-static-list p){
+  margin: 12px 0 0;
+  color: rgba(var(--text-primary-rgb), 0.58);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.scope :global(.whole-system-static-item > div){
+  background: rgba(var(--service-accent-rgb), 0.09);
+  border: 1px solid rgba(var(--service-accent-rgb), 0.22);
+}
+
+.scope :global(.whole-system-static-item img){
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: saturate(.7) contrast(1.05);
+}
+
+.scope :global(.whole-system-section:not(.is-system-static) [data-service-highlight]){
+  opacity: 0;
+}
+
+.scope :global(.whole-system-section.is-system-static [data-service-highlight]){
+  opacity: 1;
+}
+
+
+
+@media (max-width: 1180px) {
+  .scope :global(.whole-system-progress){
+    right: 22px;
+    width: 150px;
+  }
+
+  .scope :global(.whole-system-card){
+    width: 350px;
+    min-width: 300px;
+  }
+
+  .scope :global(.whole-system-card--slot-2),
+.scope :global(.whole-system-card--slot-3){
+    right: 74px;
+  }
+
+  .scope :global(.whole-system-card--slot-5){
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .scope :global(.whole-system-section){
+    height: 700svh;
+    min-height: 4300px;
+  }
+
+  .scope :global(.whole-system-stage){
+    min-height: 660px;
+  }
+
+  .scope :global(.whole-system-kicker){
+    top: 24px;
+    left: 24px;
+    font-size: 12px;
+  }
+
+  .scope :global(.whole-system-progress){
+    display: none;
+  }
+
+  .scope :global(.whole-system-scene__camera){
+    right: auto;
+    left: 50%;
+    width: 126%;
+    max-width: none;
+    margin-left: -63%;
+  }
+
+  .scope :global(.whole-system-card){
+    right: 24px;
+    bottom: 68px;
+    left: 24px;
+    top: auto;
+    width: auto;
+    min-width: 0;
+    padding: 22px 23px;
+    border-radius: 22px;
+    translate: none;
+  }
+
+  .scope :global(.whole-system-card h3){
+    max-width: 580px;
+    font-size: clamp(29px, 5.5vw, 42px);
+  }
+
+  .scope :global(.whole-system-card p){
+    max-width: 610px;
+  }
+
+  .scope :global(.whole-system-summary){
+    top: 40%;
+    left: 0;
+    right: 0;
+    width: min(calc(100% - 48px), 680px);
+    max-width: none;
+    margin-inline: auto;
+    translate: 0 -50%;
+  }
+
+  .scope :global(.whole-system-service-hub__label){
+    display: none;
+  }
+
+  .scope :global(.whole-system-section.is-system-static .whole-system-static-list){
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .scope :global(.whole-system-section){
+    height: 750svh;
+    min-height: 4400px;
+  }
+
+  .scope :global(.whole-system-stage){
+    min-height: 620px;
+  }
+
+  .scope :global(.whole-system-stage::before){
+    background:
+      linear-gradient(
+        180deg,
+        rgba(var(--page-bg-rgb), 0.75) 0%,
+        transparent 18%,
+        transparent 61%,
+        rgba(2, 5, 7, 0.85) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(2, 5, 7, 0.38),
+        transparent 18%,
+        transparent 82%,
+        rgba(2, 5, 7, 0.38)
+      );
+  }
+
+  .scope :global(.whole-system-kicker){
+    top: 20px;
+    left: 18px;
+    gap: 8px;
+    letter-spacing: 0.13em;
+  }
+
+  .scope :global(.whole-system-kicker span){
+    width: 22px;
+  }
+
+  .scope :global(.whole-system-scene){
+    bottom: 96px;
+  }
+
+  .scope :global(.whole-system-scene__camera){
+    width: 165%;
+    margin-left: -82.5%;
+  }
+
+  .scope :global(.whole-system-intro){
+    right: 17px;
+    bottom: 72px;
+    left: 17px;
+  }
+
+  .scope :global(.whole-system-intro p){
+    margin-bottom: 10px;
+    font-size: 11px;
+    letter-spacing: 0.13em;
+  }
+
+  .scope :global(.whole-system-intro h2){
+    font-size: clamp(43px, 13.2vw, 62px);
+    line-height: 0.96;
+  }
+
+  .scope :global(.whole-system-intro__line){
+    margin-top: 20px;
+  }
+
+  .scope :global(.whole-system-card){
+    right: 14px;
+    bottom: 54px;
+    left: 14px;
+    padding: 19px;
+    border-radius: 20px;
+  }
+
+  .scope :global(.whole-system-card__icon){
+    width: 42px;
+    height: 42px;
+  }
+
+  .scope :global(.whole-system-card__icon img){
+    width: 24px;
+    height: 24px;
+  }
+
+  .scope :global(.whole-system-card h3){
+    margin-top: 17px;
+    font-size: clamp(27px, 8.2vw, 36px);
+  }
+
+  .scope :global(.whole-system-card p){
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.47;
+  }
+
+  .scope :global(.whole-system-card__signal){
+    margin-top: 17px;
+    font-size: 11px;
+  }
+
+  .scope :global(.whole-system-summary){
+    left: 0;
+    right: 0;
+    width: calc(100% - 28px);
+    max-width: none;
+    margin-inline: auto;
+    padding: 27px 20px;
+    border-radius: 24px;
+    translate: 0 -50%;
+  }
+
+  .scope :global(.whole-system-summary h3){
+    font-size: clamp(34px, 10.5vw, 46px);
+  }
+
+  .scope :global(.whole-system-summary p){
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
+  .scope :global(.whole-system-summary a){
+    width: 100%;
+    margin-top: 22px;
+  }
+
+  .scope :global(.whole-system-scroll-cue){
+    bottom: 15px;
+    font-size: 9px;
+  }
+
+  .scope :global(.whole-system-section.is-system-static .whole-system-stage){
+    min-height: 680px;
+  }
+
+  .scope :global(.whole-system-section.is-system-static .whole-system-static-list){
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .scope :global(.whole-system-stage){
+    min-height: 600px;
+  }
+
+  .scope :global(.whole-system-scene__camera){
+    width: 178%;
+    margin-left: -89%;
+  }
+
+  .scope :global(.whole-system-card){
+    bottom: 46px;
+    padding: 17px;
+  }
+
+  .scope :global(.whole-system-card h3){
+    font-size: 27px;
+  }
+
+  .scope :global(.whole-system-card p){
+    font-size: 14px;
+  }
+
+  .scope :global(.whole-system-card__signal){
+    display: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  .scope :global(.whole-system-stage){
+    min-height: 780px;
+  }
+
+  .scope :global(.whole-system-card){
+    width: 420px;
+  }
+
+  .scope :global(.whole-system-card h3){
+    font-size: 43px;
+  }
+
+  .scope :global(.whole-system-progress){
+    width: 196px;
+  }
+
+  .scope :global(.whole-system-progress > div > span){
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scope :global(.whole-system-home__pulse ellipse){
+    animation: none;
+  }
+}

@@ -1,0 +1,248 @@
+.scope { display: contents; }
+
+/* An editorial HVAC service story rather than a technical diagram, gadget, or image card. */
+.scope :global(.service-craft) {
+  position: relative;
+  background: #f3f1e9;
+  color: #142027;
+  overflow: clip;
+}
+.scope :global(.service-craft__inner) {
+  width: min(100%, 1660px);
+  padding: calc(var(--header-height) + 17px) var(--hero-edge) 0;
+  margin-inline: auto;
+}
+.scope :global(.service-craft__kicker) {
+  min-height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: clamp(9px, .72vw, 11px);
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.scope :global(.service-craft__kicker > span:first-child) { display: flex; align-items: center; gap: 11px; }
+.scope :global(.service-craft__kicker i) { width: 20px; height: 2px; background: var(--brand-primary); }
+.scope :global(.service-craft__kicker > span:last-child) { opacity: .55; text-align: right; }
+.scope :global(.service-craft__stage) {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(610px, 47vw, 755px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: #101d21;
+  color: #fbfaf3;
+  border-radius: 3px;
+}
+.scope :global(.service-craft__photo) { position: absolute; z-index: -2; inset: 0; overflow: hidden; }
+.scope :global(.service-craft__photo img) { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+.scope :global(.service-craft__shade) {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9,21,26,.98) 0%, rgba(9,21,26,.91) 26%, rgba(9,21,26,.68) 46%, rgba(9,21,26,.14) 69%, rgba(9,21,26,.015) 100%), linear-gradient(0deg, rgba(9,21,26,.48), transparent 18%, transparent 82%, rgba(9,21,26,.14));
+}
+.scope :global(.service-craft__story) {
+  position: relative;
+  width: min(100%, 950px);
+  padding: clamp(68px, 6vw, 120px) clamp(25px, 5vw, 85px) clamp(105px, 10vw, 157px);
+  z-index: 2;
+}
+.scope :global(.service-craft__eyebrow) {
+  display: inline-flex;
+  gap: 15px;
+  align-items: center;
+  color: rgba(249,251,245,.88);
+  font-size: 10px;
+  letter-spacing: .16em;
+  font-weight: 830;
+  text-transform: uppercase;
+  margin-bottom: clamp(22px, 2.7vw, 37px);
+}
+.scope :global(.service-craft__number) {
+  display: inline-grid;
+  place-items: center;
+  height: 28px;
+  width: 28px;
+  background: color-mix(in srgb, var(--brand-primary) 65%, #fff);
+  color: #0b171d;
+  font-size: 10px;
+  letter-spacing: 0;
+  border-radius: 50%;
+}
+.scope :global(.service-craft__headline) {
+  margin: 0;
+  color: #fffef8;
+  font-size: clamp(65px, 6.5vw, 116px);
+  line-height: .91;
+  font-weight: 710;
+  letter-spacing: -.079em;
+  max-width: 950px;
+  text-wrap: balance;
+}
+.scope :global(.service-craft__headline > span) { display: block; width: fit-content; max-width: 100%; overflow-wrap: normal; }
+.scope :global(.service-craft__headline-last) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.12;
+  letter-spacing: -.067em;
+  color: #f7ead3;
+}
+.scope :global(.service-craft__copy) {
+  margin: clamp(20px, 2.2vw, 28px) 0 0;
+  width: min(100%, 455px);
+  color: #d6dcdc;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.7;
+  font-weight: 440;
+}
+.scope :global(.service-craft__actions) { display: flex; align-items: center; flex-wrap: wrap; gap: 19px 26px; margin-top: clamp(20px, 3vw, 35px); }
+.scope :global(.service-craft__primary),
+.scope :global(.service-craft__secondary) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-height: 54px;
+  font-size: 13px;
+  font-weight: 740;
+  transition: transform .2s ease, background .2s ease;
+}
+.scope :global(.service-craft__primary) {
+  background: color-mix(in srgb, var(--brand-primary) 33%, #fff8e9);
+  color: #152025;
+  padding: 0 18px 0 23px;
+  border-radius: 3px;
+}
+.scope :global(.service-craft__secondary) {
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.56);
+}
+.scope :global(.service-craft__primary svg),
+.scope :global(.service-craft__secondary svg) { width: 18px; height: 18px; flex: none; }
+.scope :global(.service-craft__primary:hover),
+.scope :global(.service-craft__secondary:hover) { transform: translateY(-3px); }
+.scope :global(.service-craft__eyebrow-right) {
+  position: absolute;
+  z-index: 2;
+  top: 37px;
+  right: 34px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: .13em;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 0 1px 5px rgba(0,0,0,.55);
+}
+.scope :global(.service-craft__eyebrow-right span + span::before) { content: "/"; display: inline-block; margin-right: 9px; opacity: .55; }
+.scope :global(.service-craft__lower) {
+  position: absolute;
+  z-index: 2;
+  left: clamp(25px, 5vw, 85px);
+  bottom: 27px;
+  right: clamp(25px, 5vw, 85px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,.35);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.scope :global(.service-craft__photo-label) { color: rgba(255,255,255,.7); }
+.scope :global(.service-craft__area) { display: inline-flex; align-items: center; gap: 9px; text-align: right; color: white; }
+.scope :global(.service-craft__area-mark) { flex: none; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-secondary); box-shadow: 0 0 0 4px rgba(255,255,255,.13); }
+.scope :global(.service-craft__services) { display: grid; grid-template-columns: minmax(195px,.75fr) minmax(0,2.25fr); padding: 26px 0 29px; gap: 16px 28px; align-items: center; }
+.scope :global(.service-craft__services-intro) { display: flex; flex-direction: column; gap: 8px; }
+.scope :global(.service-craft__services-intro > span) { font-size: 9px; letter-spacing: .13em; font-weight: 800; color: #7c8484; }
+.scope :global(.service-craft__services-intro > strong) { font-size: clamp(14px, 1.15vw, 17px); letter-spacing: -.025em; font-weight: 690; }
+.scope :global(.service-craft__services nav) { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); }
+.scope :global(.service-craft__services nav a) { position: relative; min-height: 67px; display: flex; align-items: center; gap: 13px; padding: 12px clamp(10px, 1.5vw, 24px); border-left: 1px solid rgba(12,38,37,.18); color: #17282c; transition: background .2s ease, color .2s ease; font-size: clamp(13px,1.05vw,16px); font-weight: 740; }
+.scope :global(.service-craft__services nav a:hover) { background: rgba(12,38,37,.055); color: var(--brand-primary); }
+.scope :global(.service-craft__service-number) { align-self: flex-start; margin-top: 4px; font-size: 10px; font-weight: 790; color: var(--brand-primary); }
+.scope :global(.service-craft__services nav a svg) { width: 15px; height: 15px; margin-left: auto; flex: none; opacity: .5; }
+
+@media (max-width: 1000px) {
+  .scope :global(.service-craft__story) { width: min(100%, 790px); }
+  .scope :global(.service-craft__headline) { font-size: clamp(61px, 7.7vw, 94px); }
+  .scope :global(.service-craft__shade) { background: linear-gradient(90deg, rgba(9,21,26,.98), rgba(9,21,26,.76) 43%, rgba(9,21,26,.26) 75%), linear-gradient(0deg, rgba(9,21,26,.48), transparent 25%); }
+  .scope :global(.service-craft__services) { grid-template-columns: 1fr; padding-bottom: 22px; }
+}
+@media (max-width: 700px) {
+  .scope :global(.service-craft__inner) { padding-top: calc(var(--header-height) + 5px); }
+  .scope :global(.service-craft__kicker) { min-height: 46px; }
+  .scope :global(.service-craft__kicker > span:last-child) { display: none; }
+  .scope :global(.service-craft__stage) { min-height: 0; display: block; padding-top: clamp(280px, 82vw, 410px); }
+  .scope :global(.service-craft__photo) { bottom: auto; height: clamp(280px, 82vw, 410px); }
+  .scope :global(.service-craft__photo img) { object-position: 57% 45% !important; }
+  .scope :global(.service-craft__shade) { bottom: auto; height: clamp(280px, 82vw, 410px); background: linear-gradient(0deg, rgba(9,21,26,.87), rgba(9,21,26,0) 60%); }
+  .scope :global(.service-craft__story) { padding: 22px 24px 85px; width: 100%; background: #101e23; }
+  .scope :global(.service-craft__headline) { font-size: clamp(49px, 10.4vw, 76px); max-width: 100%; }
+  .scope :global(.service-craft__headline-last) { font-size: .92em; }
+  .scope :global(.service-craft__eyebrow) { margin-bottom: 19px; }
+  .scope :global(.service-craft__copy) { font-size: 14px; margin-top: 18px; }
+  .scope :global(.service-craft__actions) { gap: 12px 21px; margin-top: 24px; }
+  .scope :global(.service-craft__primary), .scope :global(.service-craft__secondary) { font-size: 12px; min-height: 48px; }
+  .scope :global(.service-craft__eyebrow-right) { top: 16px; right: 15px; gap: 5px; font-size: 8px; }
+  .scope :global(.service-craft__eyebrow-right span + span::before) { margin-right: 5px; }
+  .scope :global(.service-craft__lower) { bottom: 20px; left: 23px; right: 23px; flex-wrap: wrap; gap: 10px; font-size: 9px; }
+  .scope :global(.service-craft__services) { gap: 17px; padding: 22px 0 24px; }
+  .scope :global(.service-craft__services nav) { grid-template-columns: 1fr; }
+  .scope :global(.service-craft__services nav a) { min-height: 55px; padding: 10px 0; border-left: 0; border-top: 1px solid rgba(12,38,37,.13); }
+}
+@media (max-width: 390px) {
+  .scope :global(.service-craft__story) { padding-left: 18px; padding-right: 18px; }
+  .scope :global(.service-craft__headline) { font-size: 48px; }
+  .scope :global(.service-craft__eyebrow-right) { display: none; }
+  .scope :global(.service-craft__lower) { left: 18px; right: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scope :global(.service-craft__primary),
+  .scope :global(.service-craft__secondary),
+  .scope :global(.service-craft__services nav a) { transition: none; }
+}
+
+/* Schoen signature: preserve the van's full wordmark and place copy over its open cab side. */
+.scope :global(.service-craft__stage) { background: #8f1725; }
+.scope :global(.service-craft__shade) {
+  background: linear-gradient(270deg, rgba(12,24,39,.97) 0%, rgba(12,24,39,.88) 25%, rgba(12,24,39,.62) 42%, rgba(12,24,39,.02) 70%), linear-gradient(0deg, rgba(12,24,39,.48), transparent 20%, transparent 82%, rgba(12,24,39,.12));
+}
+.scope :global(.service-craft__story) {
+  width: min(43%, 700px);
+  margin-left: auto;
+  padding: clamp(58px, 5vw, 88px) clamp(32px, 3.8vw, 62px) clamp(105px, 10vw, 157px);
+}
+.scope :global(.service-craft__headline-last) { color: var(--brand-secondary); }
+.scope :global(.service-craft__primary) {
+  color: #172231;
+  background: var(--brand-secondary);
+}
+.scope :global(.service-craft__primary svg) { color: #172231; }
+.scope :global(.service-craft__eyebrow-right) { left: 34px; right: auto; }
+.scope :global(.service-craft__services) { background: var(--surface-soft); }
+.scope :global(.service-craft__services nav a:hover) { background: rgba(200,32,50,.06); }
+@media (max-width: 1000px) {
+  .scope :global(.service-craft__story) { width: min(100%, 790px); margin-left: 0; }
+  .scope :global(.service-craft__shade) { background: linear-gradient(90deg, rgba(12,24,39,.98), rgba(12,24,39,.78) 44%, rgba(12,24,39,.24) 78%), linear-gradient(0deg, rgba(12,24,39,.48), transparent 25%); }
+  .scope :global(.service-craft__eyebrow-right) { left:auto; right:34px; }
+}
+@media (max-width: 700px) {
+  .scope :global(.service-craft__stage) { display:block; min-height:0; padding-top:0; }
+  .scope :global(.service-craft__photo) { position:relative; inset:auto; height:auto; aspect-ratio:1920 / 823; }
+  .scope :global(.service-craft__photo img) { position:relative !important; width:100%; height:100%; object-fit:contain !important; object-position:center !important; }
+  .scope :global(.service-craft__shade) { display:none; }
+  .scope :global(.service-craft__story) { width:100%; padding:24px 24px 88px; background:#172231; border-top:4px solid #C82032; }
+  .scope :global(.service-craft__headline) { font-size:clamp(47px, 10vw, 68px); }
+  .scope :global(.service-craft__eyebrow-right) { top:16px; right:15px; left:auto; }
+}
